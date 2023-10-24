@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(90deg, #333, #222);
+}
+
+.container {
+  background: linear-gradient(45deg, #444, #666);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  text-align: center;
+  width: 400px;
+}
+
+.login-container {
+  background: linear-gradient(45deg, #555, #777);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: border-glow 3s infinite alternate;
+}
+
+h1 {
+  color: #07365a;
+}
+
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border: 2px solid #777;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  background-color: #444;
+  color: #fff;
+}
+
+.btn {
+  background: linear-gradient(90deg, #141414, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #0056b3, #003d80);
+}
+
+@keyframes border-glow {
+  from { border-color: #555; }
+  to { border-color: #007bff; }
+}

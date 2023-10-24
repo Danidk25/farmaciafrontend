@@ -1,0 +1,85 @@
+<div class=" sticky-top p-0">
+  <div class="container-fluid p-0">
+    <div class="row p-0">
+      <app-bienvenida></app-bienvenida>
+
+    </div>
+
+    <div class="row p-0" style="background-color: white;" >
+      <div class="col-4">
+        <h2> Usuarios</h2>
+        <hr class="overflow-hidden">
+      </div>
+      <div class="col-7">
+        <h2>Consultar Usuarios</h2>
+        <hr>
+      </div>
+    </div>
+  </div>
+    </div>
+
+<div class="container-fluid">
+
+
+    <div class="row">
+        <!-- Columna Izquierda (4 bloques) -->
+
+        <div class="col-4 justify-content-start" >
+          <div class="container" style="position: fixed">
+
+
+            <form (ngSubmit)="crearUsuarioL()" id="formUsuarioL">
+                <input type="text" [(ngModel)]="usuario.idusuario" [ngModelOptions]="{standalone:true}"
+                    placeholder="Id" required>
+                <br><br>
+                <input type="text" [(ngModel)]="usuario.nombreusuario" [ngModelOptions]="{standalone:true}"
+                    placeholder="Nombre Usuario" required>
+                <br><br>
+                <input type="text" [(ngModel)]="usuario.password" [ngModelOptions]="{standalone:true}"
+                    placeholder="Ingrese Password" required>
+                <br><br>
+                <select [(ngModel)]="usuario.rol" [ngModelOptions]="{standalone:true}">
+                    <option value="administrador">Administrador</option>
+                    <option value="usuario">Usuario</option>
+                </select>
+                <br><br>
+                <input type="submit" class="btn btn-success" value="Save">
+                <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
+            </form>
+
+          </div>
+      </div>
+
+
+        <!-- Columna Derecha (8 bloques) -->
+        <div class="col-8">
+          <div class="container">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let u of usuarios">
+                        <th scope="row">{{u.idusuario}}</th>
+                        <td>{{u.nombreusuario}}</td>
+                        <td>{{u.password}}</td>
+                        <td>{{u.rol}}</td>
+                        <td>
+                            <button class="btn btn-warning" (click)="modificar(u)">Modify</button>
+                            <button class="btn btn-danger" (click)="Eliminar(u)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+          </div>
+        </div>
+    </div>
+</div>
