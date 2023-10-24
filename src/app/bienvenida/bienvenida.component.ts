@@ -12,7 +12,7 @@ export class BienvenidaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let a= localStorage.getItem("usuario");
+    let a= sessionStorage.getItem("usuario");
     if(a){
       this.usuario = JSON.parse(a);
     }
@@ -25,7 +25,7 @@ export class BienvenidaComponent implements OnInit {
 
   cerrarSesion(){
     //localStorage.clear();
-    localStorage.removeItem("usuario");
+    sessionStorage.removeItem("usuario");
     location.href = "/"
   }
 

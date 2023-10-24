@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
   redirigir(usuario:any){
     if(usuario){
-      localStorage.setItem("usuario",JSON.stringify(usuario));
+      sessionStorage.setItem("usuario",JSON.stringify(usuario));
       location.href = "/pagina";
     }
     else{
