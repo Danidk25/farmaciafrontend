@@ -9,13 +9,13 @@
     <div class="container">
         <div class="login-container">
             <h1 class="text-center">PHARMAGEST</h1>
-            <form (ngSubmit)="iniciarSesion()" id="formUsuarioL" class="login-form">
+            <form (ngSubmit)="iniciarSesion()" id="formUsuario" class="login-form">
                 <div class="form-group">
-                    <input type="text" class="form-control" [(ngModel)]="usuarioL.nombreusuario" [ngModelOptions]="{standalone:true}"
+                    <input type="text" class="form-control" [(ngModel)]="usuario.nombreusuario" [ngModelOptions]="{standalone:true}"
                         placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" [(ngModel)]="usuarioL.password" [ngModelOptions]="{standalone:true}"
+                    <input type="password" class="form-control" [(ngModel)]="usuario.password" [ngModelOptions]="{standalone:true}"
                         placeholder="Password" required>
                 </div>
                 <div class="form-group text-center">

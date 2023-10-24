@@ -9,7 +9,7 @@ import {catchError} from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
 
-  usuarioL:any = {};
+  usuario:any = {};
 
 
 
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   iniciarSesion(){
-    let formFormulario:any = document.getElementById("formUsuarioL");
+    let formFormulario:any = document.getElementById("formUsuario");
     let formValido:boolean = formFormulario.reportValidity();
     if(formValido){
       this.iniciarSesionServicio().subscribe(
@@ -35,15 +35,15 @@ export class LoginComponent implements OnInit {
         'Content-Type':'application/json'
       })
     }
-    return this.http.post<any>("http://localhost:8080/proyecto/loginul",this.usuarioL,httpOptions)
+    return this.http.post<any>("http://localhost:8080/proyecto/loginul",this.usuario,httpOptions)
     .pipe(
       catchError(e =>"error")
     );
   }
 
-  redirigir(usuarioL:any){
-    if(usuarioL){
-      localStorage.setItem("usuarioL",JSON.stringify(usuarioL));
+  redirigir(usuario:any){
+    if(usuario){
+      localStorage.setItem("usuario",JSON.stringify(usuario));
       location.href = "/pagina";
     }
     else{

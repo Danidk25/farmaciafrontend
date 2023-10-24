@@ -7,25 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BienvenidaComponent implements OnInit {
 
-  administrador:any = {};
+  usuario:any = {};
 
   constructor() { }
 
   ngOnInit(): void {
-    let a= localStorage.getItem("administrador");
+    let a= localStorage.getItem("usuario");
     if(a){
-      this.administrador = JSON.parse(a);
+      this.usuario = JSON.parse(a);
     }
     else{
       location.href = "/"
     }
   }
 
-  
+
 
   cerrarSesion(){
-    localStorage.clear();
-    //localStorage.removeItem("administrador");
+    //localStorage.clear();
+    localStorage.removeItem("usuario");
     location.href = "/"
   }
 
