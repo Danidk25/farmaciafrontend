@@ -1,6 +1,6 @@
-<div class=" sticky-top p-0">
+<div class=" sticky-top">
   <div class="container-fluid p-0">
-    <div class="row p-0">
+    <div class="row ">
       <app-bienvenida></app-bienvenida>
 
     </div>
@@ -10,9 +10,9 @@
         <h2> Usuarios</h2>
         <hr class="overflow-hidden">
       </div>
-      <div class="col-7">
+      <div class="col-8">
         <h2>Consultar Usuarios</h2>
-        <hr>
+        <hr class="overflow-hidden">
       </div>
     </div>
   </div>
@@ -25,10 +25,10 @@
         <!-- Columna Izquierda (4 bloques) -->
 
         <div class="col-4 justify-content-start" >
-          <div class="container" style="position: fixed">
+          <div style="position: fixed">
 
 
-            <form (ngSubmit)="crearUsuarioL()" id="formUsuarioL">
+            <form (ngSubmit)="crearUsuario()" id="formUsuario">
                 <input type="text" [(ngModel)]="usuario.idusuario" [ngModelOptions]="{standalone:true}"
                     placeholder="Id" required>
                 <br><br>
@@ -39,11 +39,12 @@
                     placeholder="Ingrese Password" required>
                 <br><br>
                 <select [(ngModel)]="usuario.rol" [ngModelOptions]="{standalone:true}">
-                    <option value="administrador">Administrador</option>
-                    <option value="usuario">Usuario</option>
+                    <option value="administrador">administrador</option>
+                    <option value="usuario">usuario</option>
                 </select>
                 <br><br>
                 <input type="submit" class="btn btn-success" value="Save">
+                &nbsp;
                 <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
             </form>
 
@@ -55,7 +56,7 @@
         <div class="col-8">
           <div class="container">
 
-            <table class="table">
+            <table class="table p-0">
                 <thead>
                     <tr>
                         <th scope="col">Id</th>
@@ -72,8 +73,9 @@
                         <td>{{u.password}}</td>
                         <td>{{u.rol}}</td>
                         <td>
-                            <button class="btn btn-warning" (click)="modificar(u)">Modify</button>
-                            <button class="btn btn-danger" (click)="Eliminar(u)">Delete</button>
+                            <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
+                            &nbsp;
+                            <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>

@@ -21,16 +21,16 @@ export class UsuarioComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.buscarUsuarioL();
+    this.buscarUsuario();
   }
 
   //Busqueda de usuarios login
-  buscarUsuarioL(){
-    this.buscarUsuarioLServicio().subscribe(
+  buscarUsuario(){
+    this.buscarUsuarioServicio().subscribe(
       (response:any) => this.usuarios = response
     )
   }
-  buscarUsuarioLServicio():Observable<any>{
+  buscarUsuarioServicio():Observable<any>{
     return this.http.get<any>("http://localhost:8080/proyecto/busuario")
     .pipe(
       catchError(e => "error")
@@ -40,18 +40,18 @@ export class UsuarioComponent implements OnInit {
   //crear usuarios login
 
 
-  crearUsuarioL(){
-    let formFormulario:any = document.getElementById("formUsuarioL");
+  crearUsuario(){
+    let formFormulario:any = document.getElementById("formUsuario");
     let formValido:boolean = formFormulario.reportValidity();
     if(formValido){
-      this.crearUsuarioLServicio().subscribe(
+      this.crearUsuarioServicio().subscribe(
         (response:any) => this.actualizar(response)
       )
     }
   }
 
 
-  crearUsuarioLServicio(){
+  crearUsuarioServicio(){
 
     var httpOptions = {
       headers: new HttpHeaders({
@@ -66,7 +66,7 @@ export class UsuarioComponent implements OnInit {
 //modificacion de usuarios Login
   actualizar(usuario:any){
     alert("Usuario guardado exitosamente con el id: "+ usuario.idusuario);
-    this.buscarUsuarioL();
+    this.buscarUsuario();
     this.usuario = {};
   }
 
@@ -80,12 +80,12 @@ export class UsuarioComponent implements OnInit {
 
   //eliminacion de usuarios login
   Eliminar(u:any){
-    this.eliminarUsuarioLServicio(u.idusuario).subscribe(
+    this.eliminarUsuarioServicio(u.idusuario).subscribe(
       (response:any) => this.actualizarEliminar(response)
     )
   }
 
-  eliminarUsuarioLServicio(idusuario:any){
+  eliminarUsuarioServicio(idusuario:any){
     return this.http.delete<any>("http://localhost:8080/proyecto/eliminarul/"+idusuario)
     .pipe(
       catchError(e =>"error")
@@ -93,7 +93,7 @@ export class UsuarioComponent implements OnInit {
   }
   actualizarEliminar(response:any){
     alert("Usuario eliminado exitosamente");
-    this.buscarUsuarioL();
+    this.buscarUsuario();
   }
 
 }
