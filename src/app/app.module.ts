@@ -11,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioComponent } from './usuarios/usuario/usuario.component';
 import { PaginainicioComponent } from './PAGINA INICIO/paginainicio/paginainicio.component';
 import { BitacoraComponent } from './bitacora/bitacora/bitacora.component';
+import { ClienteComponent } from './cliente/cliente/cliente.component';
+import { DevolucionesComponent } from './devoluciones/devoluciones/devoluciones.component';
+import { EmpleadoComponent } from './empleado/empleado/empleado.component';
+import { FacturaComponent } from './factura/factura/factura.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { BitacoraComponent } from './bitacora/bitacora/bitacora.component';
     BienvenidaComponent,
     UsuarioComponent,
     PaginainicioComponent,
-    BitacoraComponent
+    BitacoraComponent,
+    ClienteComponent,
+    DevolucionesComponent,
+    EmpleadoComponent,
+    FacturaComponent
   ],
   imports: [
     BrowserModule,
