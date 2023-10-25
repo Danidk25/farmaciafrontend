@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UsuarioComponent } from './usuarios/usuario/usuario.component';
 import { PaginainicioComponent } from './PAGINA INICIO/paginainicio/paginainicio.component';
+import { BitacoraComponent } from './bitacora/bitacora/bitacora.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PaginainicioComponent } from './PAGINA INICIO/paginainicio/paginainicio
     LoginComponent,
     BienvenidaComponent,
     UsuarioComponent,
-    PaginainicioComponent
+    PaginainicioComponent,
+    BitacoraComponent
   ],
   imports: [
     BrowserModule,
