@@ -24,16 +24,35 @@
                       <a class="nav-link" aria-current="page" href="/empleado">Empleado</a>
                     </li>
                     <li class="nav-item" *ngIf="usuario.rol === 'administrador'">
-                      <a class="nav-link" aria-current="page" href="/devoluciones">Devoluciones</a>
+                      <a class="nav-link" aria-current="page" href="/proveedor">Proveedor</a>
+                    </li>
+                    <li class="nav-item" *ngIf="usuario.rol === 'administrador'">
+                      <a class="nav-link" aria-current="page" href="/devoluciones">Devolución</a>
                     </li>
                     <li class="nav-item" *ngIf="usuario.rol === 'administrador'">
                       <a class="nav-link" aria-current="page" href="/bitacora">Bitacora</a>
                     </li>
+                    <li class="nav-item" *ngIf="usuario.rol === 'administrador'">
+                      <a class="nav-link" aria-current="page" href="/inventario">Inventario</a>
+                    </li>
                     <li class="nav-item">
                       <a class="nav-link" aria-current="page" href="/factura">Factura</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/laboratorio">Laboratorio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/medicamento">Medicamento</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/sucursal">Sucursal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/tracking">Tracking</a>
+          </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#" (click)="cerrarSesion()">Cerrar Sesión</a>
+                        <a class="nav-link" href="#" (click)="cerrarSesion()">SALIR</a>
                     </li>
 
                 </ul>

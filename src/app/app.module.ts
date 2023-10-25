@@ -15,6 +15,12 @@ import { ClienteComponent } from './cliente/cliente/cliente.component';
 import { DevolucionesComponent } from './devoluciones/devoluciones/devoluciones.component';
 import { EmpleadoComponent } from './empleado/empleado/empleado.component';
 import { FacturaComponent } from './factura/factura/factura.component';
+import { InventarioComponent } from './inventario/inventario/inventario.component';
+import { LaboratorioComponent } from './laboratorio/laboratorio/laboratorio.component';
+import { MedicamentoComponent } from './medicamento/medicamento/medicamento.component';
+import { ProveedorComponent } from './proveedor/proveedor/proveedor.component';
+import { SucursalComponent } from './sucursal/sucursal/sucursal.component';
+import { TrackingComponent } from './tracking/tracking/tracking.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,13 @@ import { FacturaComponent } from './factura/factura/factura.component';
     ClienteComponent,
     DevolucionesComponent,
     EmpleadoComponent,
-    FacturaComponent
+    FacturaComponent,
+    InventarioComponent,
+    LaboratorioComponent,
+    MedicamentoComponent,
+    ProveedorComponent,
+    SucursalComponent,
+    TrackingComponent
   ],
   imports: [
     BrowserModule,

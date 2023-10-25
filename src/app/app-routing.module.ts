@@ -9,6 +9,12 @@ import { ClienteComponent } from './cliente/cliente/cliente.component';
 import { DevolucionesComponent } from './devoluciones/devoluciones/devoluciones.component';
 import { EmpleadoComponent } from './empleado/empleado/empleado.component';
 import { FacturaComponent } from './factura/factura/factura.component';
+import { InventarioComponent } from './inventario/inventario/inventario.component';
+import { LaboratorioComponent } from './laboratorio/laboratorio/laboratorio.component';
+import { MedicamentoComponent } from './medicamento/medicamento/medicamento.component';
+import { ProveedorComponent } from './proveedor/proveedor/proveedor.component';
+import { SucursalComponent } from './sucursal/sucursal/sucursal.component';
+import { TrackingComponent } from './tracking/tracking/tracking.component';
 
 
 const routes: Routes = [
@@ -20,7 +26,13 @@ const routes: Routes = [
   {path: 'cliente',component: ClienteComponent},
   {path: 'devoluciones', component: DevolucionesComponent},
   {path: 'empleado', component: EmpleadoComponent},
-  {path: 'factura', component: FacturaComponent}
+  {path: 'factura', component: FacturaComponent},
+  {path: 'inventario', component: InventarioComponent},
+  {path: 'laboratorio', component: LaboratorioComponent},
+  {path: 'medicamento', component: MedicamentoComponent},
+  {path: 'proveedor', component: ProveedorComponent},
+  {path: 'sucursal', component: SucursalComponent},
+  {path: 'tracking', component: TrackingComponent}
 ];
 
 @NgModule({
