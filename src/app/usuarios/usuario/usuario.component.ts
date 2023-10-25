@@ -21,7 +21,7 @@ export class UsuarioComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.buscarUsuario();
+    this.buscarUsuarioAs();
   }
 
   //Busqueda de usuarios login
@@ -32,6 +32,19 @@ export class UsuarioComponent implements OnInit {
   }
   buscarUsuarioServicio():Observable<any>{
     return this.http.get<any>("http://localhost:8080/proyecto/busuario")
+    .pipe(
+      catchError(e => "error")
+    );
+  }
+
+  //buscar usuarios de forma descendente
+  buscarUsuarioAs(){
+    this.buscarUsuarioServicio().subscribe(
+      (response:any) => this.usuarios = response
+    )
+  }
+  buscarUsuarioAsServicio():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/proyecto/busuarioasc")
     .pipe(
       catchError(e => "error")
     );
@@ -93,7 +106,7 @@ export class UsuarioComponent implements OnInit {
   }
   actualizarEliminar(response:any){
     alert("Usuario eliminado exitosamente");
-    this.buscarUsuario();
+    this.buscarUsuarioAs();
   }
 
 }
