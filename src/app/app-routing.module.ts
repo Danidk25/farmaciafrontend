@@ -15,6 +15,7 @@ import { MedicamentoComponent } from './medicamento/medicamento/medicamento.comp
 import { ProveedorComponent } from './proveedor/proveedor/proveedor.component';
 import { SucursalComponent } from './sucursal/sucursal/sucursal.component';
 import { TrackingComponent } from './tracking/tracking/tracking.component';
+import { PersonaComponent } from './persona/persona/persona.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path: 'medicamento', component: MedicamentoComponent},
   {path: 'proveedor', component: ProveedorComponent},
   {path: 'sucursal', component: SucursalComponent},
-  {path: 'tracking', component: TrackingComponent}
+  {path: 'tracking', component: TrackingComponent},
+  {path: 'persona', component: PersonaComponent}
 ];
 
 @NgModule({

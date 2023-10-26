@@ -7,11 +7,11 @@
 
     <div class="row p-0" style="background-color: white;" >
       <div class="col-4">
-        <h2> Ingresar Cliente</h2>
+        <h2> Ingresar Persona</h2>
         <hr class="overflow-hidden">
       </div>
       <div class="col-8">
-        <h2>Consultar Clientes</h2>
+        <h2>Consultar Personas</h2>
         <hr class="overflow-hidden">
       </div>
     </div>
@@ -28,14 +28,14 @@
         <div style="position: fixed">
 
 
-          <form (ngSubmit)="crearUsuario()" id="formCliente">
-              <input type="text" [(ngModel)]="cliente.codigocliente" [ngModelOptions]="{standalone:true}"
-                  placeholder="Id" >
+          <form (ngSubmit)="crearPersona()" id="formPersona">
+              <input type="text" [(ngModel)]="persona.codigopersona" [ngModelOptions]="{standalone:true}"
+                  placeholder="Id" required>
               <br><br>
-              <input type="text" [(ngModel)]="cliente.primernombre" [ngModelOptions]="{standalone:true}"
-                  placeholder="Primer Nombre" required>
+              <input type="text" [(ngModel)]="persona.primernombre" [ngModelOptions]="{standalone:true}"
+                  placeholder="Nombre Usuario" required>
               <br><br>
-              <input type="date" [(ngModel)]="cliente.fecharegistro" [ngModelOptions]="{standalone:true}"
+              <input type="text" [(ngModel)]="persona.primerapellido" [ngModelOptions]="{standalone:true}"
                   placeholder="Ingrese Password" required>
               <br><br>
               <br><br>
@@ -56,17 +56,17 @@
               <thead>
                   <tr>
                       <th scope="col">Id</th>
-                      <th scope="col">Primer Nombre</th>
-                      <th scope="col">registro</th>
-
+                      <th scope="col">Nombre</th>
+                      <th scope="col">apellido</th>
                       <th scope="col">Acciones</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr *ngFor="let u of clientes">
-                      <th scope="row">{{u.codigocliente}}</th>
-                      <td>{{u.fecharegistro}}</td>
-                      <td>{{u.codigocliente}}</td>
+                  <tr *ngFor="let u of personas">
+                      <th scope="row">{{u.codigopersona}}</th>
+                      <td>{{u.primernombre}}</td>
+                      <td>{{u.primerapellido}}</td>
+                      <td>{{u.rol}}</td>
                       <td>
                           <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
                           &nbsp;
@@ -80,4 +80,3 @@
       </div>
   </div>
 </div>
-

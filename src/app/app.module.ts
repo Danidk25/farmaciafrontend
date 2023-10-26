@@ -21,6 +21,7 @@ import { MedicamentoComponent } from './medicamento/medicamento/medicamento.comp
 import { ProveedorComponent } from './proveedor/proveedor/proveedor.component';
 import { SucursalComponent } from './sucursal/sucursal/sucursal.component';
 import { TrackingComponent } from './tracking/tracking/tracking.component';
+import { PersonaComponent } from './persona/persona/persona.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { TrackingComponent } from './tracking/tracking/tracking.component';
     MedicamentoComponent,
     ProveedorComponent,
     SucursalComponent,
-    TrackingComponent
+    TrackingComponent,
+    PersonaComponent
   ],
   imports: [
     BrowserModule,
