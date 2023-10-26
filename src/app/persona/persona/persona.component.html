@@ -6,11 +6,11 @@
     </div>
 
     <div class="row p-0" style="background-color: white;" >
-      <div class="col-4">
-        <h2> Ingresar Persona</h2>
+      <div class="col-2">
+        <h2> Persona</h2>
         <hr class="overflow-hidden">
       </div>
-      <div class="col-8">
+      <div class="col-10">
         <h2>Consultar Personas</h2>
         <hr class="overflow-hidden">
       </div>
@@ -24,23 +24,62 @@
   <div class="row">
       <!-- Columna Izquierda (4 bloques) -->
 
-      <div class="col-4 justify-content-start" >
-        <div style="position: fixed">
+      <div class="col-2 justify-content-start" >
+        <div >
 
 
           <form (ngSubmit)="crearPersona()" id="formPersona">
               <input type="text" [(ngModel)]="persona.codigopersona" [ngModelOptions]="{standalone:true}"
                   placeholder="Id" required>
-              <br><br>
+              <br>
               <input type="text" [(ngModel)]="persona.primernombre" [ngModelOptions]="{standalone:true}"
-                  placeholder="Nombre Usuario" required>
-              <br><br>
+                  placeholder="Primer Nombre" required>
+              <br>
+              <input type="text" [(ngModel)]="persona.segundonombre" [ngModelOptions]="{standalone:true}"
+                  placeholder="Segundo Nombre -op">
+              <br>
+              <input type="text" [(ngModel)]="persona.tercernombre" [ngModelOptions]="{standalone:true}"
+                  placeholder="Tercer Nombre- op" >
+              <br>
               <input type="text" [(ngModel)]="persona.primerapellido" [ngModelOptions]="{standalone:true}"
-                  placeholder="Ingrese Password" required>
-              <br><br>
-              <br><br>
+                  placeholder="Primer Apellido" required>
+              <br>
+              <input type="text" [(ngModel)]="persona.segundoapellido" [ngModelOptions]="{standalone:true}"
+                  placeholder="Segundo Apellido--o">
+              <br>
+              <input type="text" [(ngModel)]="persona.apellidocasada" [ngModelOptions]="{standalone:true}"
+                  placeholder="Apellido Casada --o">
+                  <br>
+                  <input type="text" [(ngModel)]="persona.numdocidentificacion" [ngModelOptions]="{standalone:true}"
+                  placeholder="Numero Id" required>
+                  <br>
+                  <input type="text" [(ngModel)]="persona.nit" [ngModelOptions]="{standalone:true}"
+                  placeholder="Nit" required>
+                  <br>
+                  <input type="text" [(ngModel)]="persona.dpi" [ngModelOptions]="{standalone:true}"
+                  placeholder="DPI" required>
+                  <br>
+                  <input type="text" [(ngModel)]="persona.numerotelefono" [ngModelOptions]="{standalone:true}"
+                  placeholder="Telefono" required>
+                  <br>
+                  <input type="Date" [(ngModel)]="persona.fechanacimiento" [ngModelOptions]="{standalone:true}"
+                  placeholder="Fecha Nacimiento" required>
+                  <br>
+                  <input type="Text" [(ngModel)]="persona.correo" [ngModelOptions]="{standalone:true}"
+                  placeholder="Correo" required>
+                  <br>
+                  <input type="Text" [(ngModel)]="persona.direccion" [ngModelOptions]="{standalone:true}"
+                  placeholder="Direccion" required>
+                  <br>
+                  <input type="Text" [(ngModel)]="persona.departamento" [ngModelOptions]="{standalone:true}"
+                  placeholder="departamento" required>
+                  <br>
+                  <input type="Text" [(ngModel)]="persona.nombrepais" [ngModelOptions]="{standalone:true}"
+                  placeholder="Pais" required>
+
+              <br>
               <input type="submit" class="btn btn-success" value="Save">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
               <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
           </form>
 
@@ -49,27 +88,51 @@
 
 
       <!-- Columna Derecha (8 bloques) -->
-      <div class="col-8">
+      <div class="col-10">
         <div class="container">
 
           <table class="table p-0">
               <thead>
                   <tr>
                       <th scope="col">Id</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">apellido</th>
-                      <th scope="col">Acciones</th>
+                      <th scope="col">1Nombre</th>
+                      <th scope="col">2Nombre</th>
+                      <th scope="col">3Nombre</th>
+                      <th scope="col">1Apellido</th>
+                      <th scope="col">2Apellido</th>
+                      <th scope="col">Casada</th>
+                      <th scope="col">Identy</th>
+                      <th scope="col">Nit</th>
+                      <th scope="col">Dpi</th>
+                      <th scope="col">Tel</th>
+                      <th scope="col">Nacimiento</th>
+                      <th scope="col">Correo</th>
+                      <th scope="col">Direccion</th>
+                      <th scope="col">Depto.</th>
+                      <th scope="col">Pais</th>
                   </tr>
               </thead>
               <tbody>
                   <tr *ngFor="let u of personas">
                       <th scope="row">{{u.codigopersona}}</th>
                       <td>{{u.primernombre}}</td>
+                      <td>{{u.segundonombre}}</td>
+                      <td>{{u.tercernombre}}</td>
                       <td>{{u.primerapellido}}</td>
-                      <td>{{u.rol}}</td>
+                      <td>{{u.segundoapellido}}</td>
+                      <td>{{u.apellidocasada}}</td>
+                      <td>{{u.numdocidentificacion}}</td>
+                      <td>{{u.nit}}</td>
+                      <td>{{u.dpi}}</td>
+                      <td>{{u.numerotelefono}}</td>
+                      <td>{{u.fechanacimiento | date:'dd/MM/yyyy'}}</td>
+                      <td>{{u.correo}}</td>
+                      <td>{{u.direccion}}</td>
+                      <td>{{u.departamento}}</td>
+                      <td>{{u.nombrepais}}</td>
                       <td>
                           <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
-                          &nbsp;
+                          <br><br>
                           <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
                       </td>
                   </tr>
