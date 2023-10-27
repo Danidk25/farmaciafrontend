@@ -13,12 +13,12 @@ import { ThisReceiver } from '@angular/compiler';
 export class PersonaComponent implements OnInit {
   persona:any ={};
   codigopersona:any ={};
-  
+
   personas: any =[];
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.buscarPersona();
+    this.buscarPersonaAs();
   }
   //Busqueda de usuarios login
   buscarPersona(){

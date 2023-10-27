@@ -21,7 +21,7 @@ export class UsuarioComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.buscarUsuarioAs();
+    this.buscarUsuario();
   }
 
   //Busqueda de usuarios login
