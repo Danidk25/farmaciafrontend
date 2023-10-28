@@ -13,11 +13,26 @@ import { ThisReceiver } from '@angular/compiler';
 export class ClienteComponent implements OnInit {
   cliente:any ={};
   clientes: any =[];
+  personas: any =[];
 
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
     this.buscarCliente();
+  }
+
+
+   //Busqueda de usuarios login
+   buscarPersona(){
+    this.buscarPersonaServicio(Response).subscribe(
+      (response:any) => this.personas = response
+    )
+  }
+  buscarPersonaServicio(codigopersona: any):Observable<any>{
+    return this.http.get<any>("http://localhost:8080/proyecto//buscar/id/"+ codigopersona)
+    .pipe(
+      catchError(e => "error")
+    );
   }
 
 //buscar clientes

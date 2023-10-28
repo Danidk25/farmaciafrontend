@@ -29,15 +29,16 @@
 
 
           <form (ngSubmit)="crearUsuario()" id="formCliente">
-              <input type="text" [(ngModel)]="cliente.codigocliente" [ngModelOptions]="{standalone:true}"
+            <input type="text" [(ngModel)]="cliente.codigocliente" [ngModelOptions]="{standalone:true}"
                   placeholder="Id" >
               <br><br>
-              <input type="text" [(ngModel)]="cliente.primernombre" [ngModelOptions]="{standalone:true}"
-                  placeholder="Primer Nombre" required>
-              <br><br>
               <input type="date" [(ngModel)]="cliente.fecharegistro" [ngModelOptions]="{standalone:true}"
-                  placeholder="Ingrese Password" required>
+                  placeholder="Fecha" required>
               <br><br>
+              <input type="tex" [(ngModel)]="cliente.codigopersona" [ngModelOptions]="{standalone:true}"
+                  placeholder="Codigo persona" >
+              <br><br>
+
               <br><br>
               <input type="submit" class="btn btn-success" value="Save">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -56,21 +57,27 @@
               <thead>
                   <tr>
                       <th scope="col">Id</th>
-                      <th scope="col">Primer Nombre</th>
-                      <th scope="col">registro</th>
-
+                      <th scope="col">Fecha Registro</th>
+                      <th scope="col">Cod. Cliente</th>
                       <th scope="col">Acciones</th>
+                      <th scope="col">nombre</th>
                   </tr>
               </thead>
               <tbody>
                   <tr *ngFor="let u of clientes">
                       <th scope="row">{{u.codigocliente}}</th>
-                      <td>{{u.fecharegistro}}</td>
-                      <td>{{u.codigocliente}}</td>
+                      <td>{{u.fecharegistro | date:'dd/MM/yyyy'}}</td>
+                      <td>{{u.codigopersona}}</td>
+
                       <td>
                           <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
                           &nbsp;
                           <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
+                      </td>
+                      <td>
+                        <ng-container *ngFor="let p of personas">
+                          {{ u.p.primernombre }}
+                        </ng-container>
                       </td>
                   </tr>
               </tbody>
