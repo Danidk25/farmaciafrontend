@@ -17,3 +17,77 @@
     </div>
   </div>
     </div>
+
+<div class="container-fluid">
+
+
+  <div class="row">
+      <!-- Columna Izquierda (4 bloques) -->
+
+      <div class="col-4 justify-content-start" >
+        <div style="position: fixed">
+
+
+          <form (ngSubmit)="crearUsuario()" id="formEmpleado">
+            <input type="text" [(ngModel)]="empleado.codigoempleado" [ngModelOptions]="{standalone:true}"
+                  placeholder="Id" >
+              <br><br>
+              <input type="date" [(ngModel)]="empleado.fechaingreso" [ngModelOptions]="{standalone:true}"
+                  placeholder="Ingreso" required>
+              <br><br>
+              <input type="tex" [(ngModel)]="empleado.salariobase" [ngModelOptions]="{standalone:true}"
+                  placeholder="Sueldo" >
+              <br><br>
+              <input type="date" [(ngModel)]="empleado.fechaegreso" [ngModelOptions]="{standalone:true}"
+                  placeholder="Egreso" >
+              <br><br>
+              <input type="tex" [(ngModel)]="empleado.codigopersona" [ngModelOptions]="{standalone:true}"
+                  placeholder="Codigo persona" >
+              <br><br>
+              <input type="submit" class="btn btn-success" value="Save">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
+          </form>
+
+        </div>
+    </div>
+
+
+      <!-- Columna Derecha (8 bloques) -->
+      <div class="col-8">
+        <div class="container">
+
+          <table class="table p-0">
+              <thead>
+                  <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Fecha Registro</th>
+                      <th scope="col">Salario</th>
+                      <th scope="col">Fecha Registro</th>
+                      <th scope="col">Cod. Persona</th>
+                      <th scope="col">Acciones</th>
+                      <!-- <th scope="col">nombre</th> -->
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let u of empleados">
+                      <th scope="row">{{u.codigoempleado}}</th>
+                      <td>{{u.fechaingreso | date:'dd/MM/yyyy'}}</td>
+                      <td>{{u.salariobase}}</td>
+                      <td>{{u.fechaegreso | date:'dd/MM/yyyy'}}</td>
+                      <td>
+                          <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
+                          &nbsp;
+                          <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
+                      </td>
+
+                  </tr>
+              </tbody>
+          </table>
+
+        </div>
+      </div>
+  </div>
+</div>
+
+

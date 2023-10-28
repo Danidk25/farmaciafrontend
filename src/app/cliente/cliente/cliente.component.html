@@ -58,7 +58,7 @@
                   <tr>
                       <th scope="col">Id</th>
                       <th scope="col">Fecha Registro</th>
-                      <th scope="col">Cod. Cliente</th>
+                      <th scope="col">Cod. Persona</th>
                       <th scope="col">Acciones</th>
                       <!-- <th scope="col">nombre</th> -->
                   </tr>
@@ -68,7 +68,6 @@
                       <th scope="row">{{u.codigocliente}}</th>
                       <td>{{u.fecharegistro | date:'dd/MM/yyyy'}}</td>
                       <td>{{u.codigopersona}}</td>
-
                       <td>
                           <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
                           &nbsp;

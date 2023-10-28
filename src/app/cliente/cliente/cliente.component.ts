@@ -22,7 +22,7 @@ export class ClienteComponent implements OnInit {
   }
 
 
-   //Busqueda de usuarios login
+   //Busqueda de personas
    buscarPersona(){
     this.buscarPersonaServicio(Response).subscribe(
       (response:any) => this.personas = response
@@ -34,6 +34,8 @@ export class ClienteComponent implements OnInit {
       catchError(e => "error")
     );
   }
+
+
 
 //buscar clientes
   buscarCliente(){
@@ -47,7 +49,7 @@ export class ClienteComponent implements OnInit {
       catchError(e => "error")
     );
   }
-  //buscar usuarios de forma ascendente
+  //buscar clientes de forma ascendente
   buscarClienteAs(){
     this.buscarClienteAsServicio().subscribe(
       (response:any) => this.clientes = response
@@ -61,7 +63,7 @@ export class ClienteComponent implements OnInit {
   }
 
 
-    //crear usuarios login
+    //crear clientes login
 
 
     crearUsuario(){
@@ -87,7 +89,7 @@ export class ClienteComponent implements OnInit {
         catchError(e =>"error")
       );
     }
-    //modificacion de usuarios Login
+    //modificacion de clientes Login
   actualizar(cliente:any){
     alert("Cliente guardado exitosamente con el id: "+ cliente.codigocliente);
     this.buscarCliente();
