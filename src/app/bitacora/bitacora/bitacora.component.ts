@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError, timestamp} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ThisReceiver } from '@angular/compiler';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-bitacora',
@@ -33,4 +34,38 @@ export class BitacoraComponent implements OnInit {
   }
 
 
+  generarInformePDF() {
+    const doc = new jsPDF();
+
+    doc.text('Informe de Bitácora', 10, 10);
+
+    // Obtén los datos de la tabla y agrégalos al informe
+    const bitacoras = this.bitacoras;
+    let y = 30;
+
+    for (const bitacora of bitacoras) {
+      doc.text(`ID: ${bitacora.idbitacora}`, 10, y);
+      doc.text(`Tabla: ${bitacora.tabla}`, 50, y);
+      doc.text(`Campo: ${bitacora.campo}`, 90, y);
+      doc.text(`Campo: ${bitacora.llaveprimaria}`, 90, y);
+      doc.text(`Campo: ${bitacora.valoranterior}`, 90, y);
+      doc.text(`Campo: ${bitacora.valornuevo}`, 90, y);
+      doc.text(`Campo: ${bitacora.fechacreacion}`, 90, y);
+      doc.text(`Campo: ${bitacora.usuariocreacion}`, 90, y);
+      doc.text(`Campo: ${bitacora.tipomovimiento}`, 90, y);
+      doc.text(`Campo: ${bitacora.ipregistro}`, 90, y);
+      y += 10; 
+    }
+
+    // Guarda el informe como un archivo PDF
+    doc.save('informe_bitacora.pdf');
+  }
 }
+
+
+
+
+
+
+
+
