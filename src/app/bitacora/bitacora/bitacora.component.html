@@ -6,14 +6,45 @@
     </div>
 
     <div class="row p-0" style="background-color: white;" >
-      <div class="col-4">
+      <div class="center">
         <h2> Bitacora</h2>
-        <hr class="overflow-hidden">
-      </div>
-      <div class="col-8">
-        <h2>Consultar Bitacora</h2>
         <hr class="overflow-hidden">
       </div>
     </div>
   </div>
     </div>
+
+
+
+
+    <table class="table p-0">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Tabla</th>
+                <th scope="col">Campo</th>
+                <th scope="col">Llave Primaria</th>
+                <th scope="col">Valor Anterior</th>
+                <th scope="col">Valor Nuevo</th>
+                <th scope="col">Fecha Creacion</th>
+                <th scope="col">Usuario Creacion</th>
+                <th scope="col">Tipo Movimiento</th>
+                <th scope="col">Ip Registro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of bitacoras">
+                <th scope="row">{{u.idbitacora}}</th>
+                <td>{{u.tabla}}</td>
+                <td>{{u.campo}}</td>
+                <td>{{u.llaveprimaria}}</td>
+                <td>{{u.valoranterior}}</td>
+                <td>{{u.valornuevo}}</td>
+                <td>{{u.fechacreacion | date:'dd/MM/yyyy'}}</td>
+                <td>{{u.usuariocreacion}}</td>
+                <td>{{u.tipomovimiento}}</td>
+                <td>{{u.ipregistro}}</td>
+
+            </tr>
+        </tbody>
+    </table>
