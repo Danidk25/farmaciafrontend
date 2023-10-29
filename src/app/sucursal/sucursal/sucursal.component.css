@@ -1,0 +1,96 @@
+body {
+  background: linear-gradient(135deg, #555, #333);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+  background-color: transparent !important;
+}
+
+/* Estilos para el formulario y los botones */
+form {
+  background: #444;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"], button {
+  background-color: #999999;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover, button:hover {
+  background-color: #097031;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #666;
+}
+
+tr:hover {
+  background-color: #555;
+}
+
+/* Estilos para los títulos */
+h2 {
+  color: #ada7a7;
+  font-weight: bold;
+}
+
+/* Estilo para el botón "Guardar" (Save) */
+.btn-success {
+  background-color: #5cb85c; /* Color verde */
+  color: #fff; /* Texto en blanco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.btn-success:hover {
+  background-color: #449d44; /* Cambio de color al pasar el cursor */
+}
+
+/* Estilo para el botón "Limpiar" (Clean) */
+.btn-secondary {
+  background-color: #999999; /* Color azul */
+  color: #fff; /* Texto en blanco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #31b0d5; /* Cambio de color al pasar el cursor */
+}
