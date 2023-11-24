@@ -6,11 +6,11 @@
     </div>
 
     <div class="row p-0" style="background-color: white;" >
-      <div class="col-4">
+      <div class="col-3">
         <h2> Ingresar Proveedor</h2>
         <hr class="overflow-hidden">
       </div>
-      <div class="col-8">
+      <div class="col-9">
         <h2>Consultar Proveedor</h2>
         <hr class="overflow-hidden">
       </div>
@@ -22,24 +22,39 @@
 
 
   <div class="row">
-      <!-- Columna Izquierda (4 bloques) -->
+    <!-- Columna Izquierda (4 bloques) -->
 
-      <div class="col-4 justify-content-start" >
-        <div style="position: fixed">
+    <div class="col-3 justify-content-start" >
+      <div >
 
 
           <form (ngSubmit)="crearUsuario()" id="formProveedor">
             <input type="text" [(ngModel)]="proveedor.codigoproveedor" [ngModelOptions]="{standalone:true}"
-                  placeholder="Id" >
+                  placeholder="Id" required>
+              <br><br>
+              <input type="tex" [(ngModel)]="proveedor.primernombre" [ngModelOptions]="{standalone:true}"
+              placeholder="Primer nombre" required>
+              <br><br>
+              <input type="tex" [(ngModel)]="proveedor.segundonombre" [ngModelOptions]="{standalone:true}"
+              placeholder="Segundo nombre -op" >
+              <br><br>
+              <input type="tex" [(ngModel)]="proveedor.primerapellido" [ngModelOptions]="{standalone:true}"
+              placeholder="Primer apellido" required>
+              <br><br>
+              <input type="tex" [(ngModel)]="proveedor.segundoapellido" [ngModelOptions]="{standalone:true}"
+              placeholder="Segundo apellido -op" >
+              <br><br>
+              <input type="tex" [(ngModel)]="proveedor.nit" [ngModelOptions]="{standalone:true}"
+              placeholder="Nit" required>
+              <br><br>
+              <input type="tex" [(ngModel)]="proveedor.numerotelefono" [ngModelOptions]="{standalone:true}"
+              placeholder="Numero de telefono" required>
               <br><br>
               <input type="date" [(ngModel)]="proveedor.fechaproveedor" [ngModelOptions]="{standalone:true}"
                   placeholder="Fecha" required>
-              <br><br>
-              <input type="tex" [(ngModel)]="proveedor.codigopersona" [ngModelOptions]="{standalone:true}"
-                  placeholder="Codigo persona" >
-              <br><br>
+              <br>
 
-              <br><br>
+              <br>
               <input type="submit" class="btn btn-success" value="Save">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
@@ -57,8 +72,13 @@
               <thead>
                   <tr>
                       <th scope="col">Id</th>
+                      <th scope="col">Primer Nombre</th>
+                      <th scope="col">Segundo Nombre</th>
+                      <th scope="col">Primer Apellido</th>
+                      <th scope="col">Segundo Apellido</th>
+                      <th scope="col">Nit</th>
+                      <th scope="col">Numero de Telefono</th>
                       <th scope="col">Fecha Registro</th>
-                      <th scope="col">Cod. Persona</th>
                       <th scope="col">Acciones</th>
                       <!-- <th scope="col">nombre</th> -->
                   </tr>
@@ -66,11 +86,16 @@
               <tbody>
                   <tr *ngFor="let u of proveedores">
                       <th scope="row">{{u.codigoproveedor}}</th>
+                      <td>{{u.primernombre}}</td>
+                      <td>{{u.segundonombre}}</td>
+                      <td>{{u.primerapellido}}</td>
+                      <td>{{u.segundoapellido}}</td>
+                      <td>{{u.nit}}</td>
+                      <td>{{u.numerotelefono}}</td>
                       <td>{{u.fechaproveedor | date:'dd/MM/yyyy'}}</td>
-                      <td>{{u.codigopersona}}</td>
                       <td>
                           <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
-                          &nbsp;
+                          &nbsp;&nbsp;
                           <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
                       </td>
                   </tr>
