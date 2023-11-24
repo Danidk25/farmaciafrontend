@@ -6,14 +6,131 @@
     </div>
 
     <div class="row p-0" style="background-color: white;" >
-      <div class="col-4">
-        <h2> No se ingresan ***</h2>
+      <div class="col-2">
+        <h2> Crear medicamento</h2>
         <hr class="overflow-hidden">
       </div>
-      <div class="col-8">
-        <h2>Consultar Medicamento</h2>
+      <div class="col-10">
+        <h2>Consultar medicamento</h2>
         <hr class="overflow-hidden">
       </div>
     </div>
   </div>
     </div>
+
+<div class="container-fluid">
+
+
+  <div class="row">
+      <!-- Columna Izquierda (4 bloques) -->
+
+      <div class="col-2 justify-content-start" >
+        <div >
+
+
+          <form (ngSubmit)="crearMedicamento()" id="forMedicamento">
+              <input type="text" [(ngModel)]="medicamento.codigomedicamento" [ngModelOptions]="{standalone:true}"
+                  placeholder="Id" required>
+              <br>
+              <input type="text" [(ngModel)]="medicamento.lote" [ngModelOptions]="{standalone:true}"
+                  placeholder="Lote" required>
+              <br>
+              <input type="text" [(ngModel)]="medicamento.nombrecomercial" [ngModelOptions]="{standalone:true}"
+                  placeholder="Nombre comercial">
+              <br>
+              <select [(ngModel)]="medicamento.estado" [ngModelOptions]="{standalone:true}">
+                <option value="Activo">Activo</option>
+                <option value="Inctivo">Inctivo</option>
+            </select>
+              <br>
+              <select [(ngModel)]="medicamento.unidaddemedida" [ngModelOptions]="{standalone:true}">
+                <option value="1">LITROS</option>
+                <option value="2">GRAMOS</option>
+                <option value="3">LIBRAS</option>
+            </select>
+
+              <input type="text" [(ngModel)]="medicamento.proporcion" [ngModelOptions]="{standalone:true}"
+                  placeholder="Proporcion --o">
+              <br>
+              <input type="Date" [(ngModel)]="medicamento.fechacreacion" [ngModelOptions]="{standalone:true}"
+              placeholder="Fecha creacion" required>
+              <br>
+              <input type="Date" [(ngModel)]="medicamento.fechaingreso" [ngModelOptions]="{standalone:true}"
+              placeholder="Fecha ingreso" required>
+              <br>
+              <input type="Date" [(ngModel)]="medicamento.fechavencimiento" [ngModelOptions]="{standalone:true}"
+              placeholder="Fecha vencimiento" >
+              <br>
+              <input type="text" [(ngModel)]="medicamento.existencia" [ngModelOptions]="{standalone:true}"
+              placeholder="Existencia" required>
+              <br>
+              <input type="text" [(ngModel)]="medicamento.costoventa" [ngModelOptions]="{standalone:true}"
+              placeholder="Costo de venta" required>
+              <br>
+              <input type="text" [(ngModel)]="medicamento.costocompra" [ngModelOptions]="{standalone:true}"
+              placeholder="Costo de compra" required>
+              <br>
+              <input type="text" [(ngModel)]="medicamento.principioactivo" [ngModelOptions]="{standalone:true}"
+              placeholder="Principio activo" required>
+              <br>
+
+              <br>
+              <input type="submit" class="btn btn-success" value="Save">
+
+              <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
+          </form>
+
+        </div>
+    </div>
+
+
+      <!-- Columna Derecha (8 bloques) -->
+      <div class="col-8">
+        <div class="container">
+
+          <table class="table p-0">
+              <thead>
+                  <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Lote</th>
+                      <th scope="col">Nombre Comercial</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Unidad de Medida</th>
+                      <th scope="col">Proporcion</th>
+                      <th scope="col">Fecha de Creacion</th>
+                      <th scope="col">Fecha de Ingreso</th>
+                      <th scope="col">Fecha de Vencimiento</th>
+                      <th scope="col">Existencia</th>
+                      <th scope="col">Costo de Venta</th>
+                      <th scope="col">Costo de Compra</th>
+                      <th scope="col">Principio Activo</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let u of medicamentos">
+                      <th scope="row">{{u.codigomedicamento}}</th>
+                      <td>{{u.lote}}</td>
+                      <td>{{u.nombrecomercial}}</td>
+                      <td>{{u.estado}}</td>
+                      <td>{{u.unidaddemedida}}</td>
+                      <td>{{u.proporcion}}</td>
+                      <td>{{u.fechacreacion | date:'dd/MM/yyyy'}}</td>
+                      <td>{{u.fechaingreso | date:'dd/MM/yyyy'}}</td>
+                      <td>{{u.fechavencimiento | date:'dd/MM/yyyy'}}</td>
+                      <td>{{u.existencia}}</td>
+                      <td>{{u.costoventa}}</td>
+                      <td>{{u.costocompra}}</td>
+                      <td>{{u.principioactivo}}</td>
+                      <td>
+                          <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
+                          <br><br>
+                          <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+
+        </div>
+      </div>
+  </div>
+</div>
