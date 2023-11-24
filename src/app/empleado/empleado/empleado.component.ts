@@ -19,7 +19,7 @@ export class EmpleadoComponent implements OnInit {
   ngOnInit(): void {
     this.buscarEmpleado();
   }
-//buscar clientes
+//buscar empleado
 buscarEmpleado(){
   this.buscarEmpleadoServicio().subscribe(
     (response:any) => this.empleados = response
@@ -31,35 +31,22 @@ buscarEmpleadoServicio():Observable<any>{
     catchError(e => "error")
   );
 }
-//buscar clientes de forma ascendente
-buscarClienteAs(){
-  this.buscarClienteAsServicio().subscribe(
-    (response:any) => this.empleado = response
-  )
-}
-buscarClienteAsServicio():Observable<any>{
-  return this.http.get<any>("http://localhost:8080/proyecto/bempleadoasc")
-  .pipe(
-    catchError(e => "error")
-  );
-}
+
+  //crear empleado login
 
 
-  //crear clientes login
-
-
-  crearUsuario(){
+  crearEmpleado(){
     let formFormulario:any = document.getElementById("formEmpleado");
     let formValido:boolean = formFormulario.reportValidity();
     if(formValido){
-      this.crearClienteServicio().subscribe(
+      this.crearEmpleadoServicio().subscribe(
         (response:any) => this.actualizar(response)
       )
     }
   }
 
 
-  crearClienteServicio(){
+  crearEmpleadoServicio(){
 
     var httpOptions = {
       headers: new HttpHeaders({
@@ -73,7 +60,7 @@ buscarClienteAsServicio():Observable<any>{
   }
   //modificacion de clientes Login
 actualizar(empleado:any){
-  alert("Cliente guardado exitosamente con el id: "+ empleado.codigocliente);
+  alert("Empleado guardado exitosamente con el id: "+ empleado.codigoempleado);
   this.buscarEmpleado();
   this.empleado  = {};
 }
@@ -88,20 +75,20 @@ modificar(u:any){
 
 //eliminacion de clientes
 Eliminar(u:any){
-  this.eliminarClienteServicio(u.codigoempleado).subscribe(
+  this.eliminarEmpleadoServicio(u.codigoempleado).subscribe(
     (response:any) => this.actualizarEliminar(response)
   )
 }
 
-eliminarClienteServicio(codigoempleado:any){
+eliminarEmpleadoServicio(codigoempleado:any){
   return this.http.delete<any>("http://localhost:8080/proyecto/eliminaremp/"+codigoempleado)
   .pipe(
     catchError(e =>"error")
   );
 }
 actualizarEliminar(response:any){
-  alert("Cliente eliminado exitosamente");
-  this.buscarClienteAs();
+  alert("Empleado eliminado exitosamente");
+  this.buscarEmpleado();
 }
 
 

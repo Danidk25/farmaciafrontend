@@ -28,7 +28,7 @@
         <div style="position: fixed">
 
 
-          <form (ngSubmit)="crearUsuario()" id="formEmpleado">
+          <form (ngSubmit)="crearEmpleado()" id="formEmpleado">
             <input type="text" [(ngModel)]="empleado.codigoempleado" [ngModelOptions]="{standalone:true}"
                   placeholder="Id" >
               <br><br>
@@ -40,9 +40,6 @@
               <br><br>
               <input type="date" [(ngModel)]="empleado.fechaegreso" [ngModelOptions]="{standalone:true}"
                   placeholder="Egreso" >
-              <br><br>
-              <input type="tex" [(ngModel)]="empleado.codigopersona" [ngModelOptions]="{standalone:true}"
-                  placeholder="Codigo persona" >
               <br><br>
               <input type="submit" class="btn btn-success" value="Save">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -64,7 +61,6 @@
                       <th scope="col">Fecha Registro</th>
                       <th scope="col">Salario</th>
                       <th scope="col">Fecha Registro</th>
-                      <th scope="col">Cod. Persona</th>
                       <th scope="col">Acciones</th>
                       <!-- <th scope="col">nombre</th> -->
                   </tr>
