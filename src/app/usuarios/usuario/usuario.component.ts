@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError, timestamp} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ThisReceiver } from '@angular/compiler';
+import jsPDF from 'jspdf';
 
 
 @Component({
@@ -108,5 +109,46 @@ export class UsuarioComponent implements OnInit {
     alert("Usuario eliminado exitosamente");
     this.buscarUsuarioAs();
   }
+
+  generarInformePDF() {
+    const doc = new jsPDF();
+    const fontSize = 12;
+    const lineHeight = 15;
+
+    // Configuración del título
+    doc.setFontSize(fontSize + 4);
+    doc.text('Informe de Usuarios', 20, 20);
+
+    // Configuración de las columnas
+    doc.setFontSize(fontSize);
+    const columnX1 = 20;
+    const columnX2 = 60;
+    const columnX3 = 100;
+
+
+    // Obtén los datos de la tabla y agrégalos al informe
+    const usuarios = this.usuarios;
+    let y = 40;
+
+    // Encabezados de columna
+    doc.text('ID', columnX1, y);
+    doc.text('Usuario', columnX2, y);
+    doc.text('Rol', columnX3, y);
+
+    y += lineHeight;
+
+    for (const usuario of usuarios) {
+      doc.text(usuario.idusuario.toString(), columnX1, y);
+      doc.text(usuario.nombreusuario, columnX2, y);
+      doc.text(usuario.rol, columnX3, y);
+      y += lineHeight;
+    }
+
+
+    // Guarda el informe como un archivo PDF
+    doc.save('informe_usuarios.pdf');
+  }
+
+
 
 }

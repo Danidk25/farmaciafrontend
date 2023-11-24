@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError, timestamp} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ThisReceiver } from '@angular/compiler';
+import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-proveedor',
@@ -104,5 +105,49 @@ export class ProveedorComponent implements OnInit {
   }
 
 
+  generarInformePDF() {
+    const doc = new jsPDF();
+    const fontSize = 12;
+    const lineHeight = 15;
+
+    // Configuración del título
+    doc.setFontSize(fontSize + 4);
+    doc.text('Informe de Proveedores', 20, 20);
+
+    // Configuración de las columnas
+    doc.setFontSize(fontSize);
+    const columnX1 = 20;
+    const columnX2 = 30;
+    const columnX3 = 70;
+    const columnX4 = 100;
+    const columnX5 = 130;
+
+
+    // Obtén los datos de la tabla y agrégalos al informe
+    const proveedores = this.proveedores;
+    let y = 40;
+
+    // Encabezados de columna
+    doc.text('ID', columnX1, y);
+    doc.text('Nombre', columnX2, y);
+    doc.text('Apellido', columnX3, y);
+    doc.text('nit', columnX4, y);
+    doc.text('Telefono', columnX5, y);
+
+    y += lineHeight;
+
+    for (const proveedor of proveedores) {
+      doc.text(proveedor.codigoproveedor.toString(), columnX1, y);
+      doc.text(proveedor.primernombre, columnX2, y);
+      doc.text(proveedor.primerapellido, columnX3, y);
+      doc.text(proveedor.nit.toString(), columnX4, y);
+      doc.text(proveedor.numerotelefono.toString(), columnX5, y);
+      y += lineHeight;
+    }
+
+
+    // Guarda el informe como un archivo PDF
+    doc.save('informe_proveedores.pdf');
+  }
 
 }

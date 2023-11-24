@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError, timestamp} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ThisReceiver } from '@angular/compiler';
+import jsPDF from 'jspdf';
+
+// Tu código sigue aquí
 
 @Component({
   selector: 'app-medicamento',
@@ -85,4 +88,9 @@ export class MedicamentoComponent implements OnInit {
     alert("Medicamento eliminado exitosamente");
     this.buscarMedicamento();
   }
+
+
+
+
+
 }
