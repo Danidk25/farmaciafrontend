@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError, timestamp} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ThisReceiver } from '@angular/compiler';
-import { Chart } from 'chart.js';
-import jsPDF from 'jspdf';
+
 
 
 @Component({
@@ -21,7 +20,6 @@ export class FacturaComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarFactura();
-    this.generarInformePDF();
   }
 
   buscarFactura(){
@@ -102,66 +100,7 @@ export class FacturaComponent implements OnInit {
     this.buscarFactura();
   }
 
-//generacion reporte estadistico tentativo borrar
-  generarInformePDF() {
-    // Obtener el contenido del Canvas
-    const canvas = document.getElementById('grafico') as HTMLCanvasElement;
-    const ctx = canvas.getContext('2d');
 
-    if (!ctx) {
-      console.error('No se pudo obtener el contexto del lienzo');
-      return;
-    }
-
-    // Verificar si el gráfico ya se ha generado
-    if (!this.facturas || this.facturas.length === 0) {
-      console.error('No hay datos para generar el informe PDF');
-      return;
-    }
-
-    // Dibujar el gráfico en el Canvas
-    const labels = this.facturas.map(factura => factura.codigofactura.toString());
-    const data = this.facturas.map(factura => factura.total);
-
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Total por Factura',
-          data: data,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-
-    // Verificar si el Canvas tiene datos
-    if (canvas.toDataURL('image/png') === 'data:,') {
-      console.error('El Canvas no tiene datos para generar el informe PDF');
-      return;
-    }
-
-    // Crear un nuevo objeto jsPDF
-    const doc = new jsPDF();
-
-    // Convertir el Canvas a una imagen base64
-    const imgData = canvas.toDataURL('image/png');
-
-    // Agregar la imagen al documento PDF
-    doc.addImage(imgData, 'PNG', 10, 10, 180, 80);
-
-    // Guardar el archivo PDF
-    doc.save('informe.pdf');
-  }
 
 
 }
