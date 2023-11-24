@@ -74,7 +74,7 @@
                     <tr *ngFor="let u of usuarios">
                         <th scope="row">{{u.idusuario}}</th>
                         <td>{{u.nombreusuario}}</td>
-                        <td >{{u.password}}</td>
+                        <td>{{ ocultarContrasena(u.password) }}</td>
                         <td>{{u.rol}}</td>
                         <td>
                             <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>

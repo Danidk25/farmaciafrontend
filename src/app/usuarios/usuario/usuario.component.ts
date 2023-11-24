@@ -25,6 +25,11 @@ export class UsuarioComponent implements OnInit {
     this.buscarUsuario();
   }
 
+
+  ocultarContrasena(contrasena: string): string {
+    return '*'.repeat(contrasena.length);
+  }
+
   //Busqueda de usuarios login
   buscarUsuario(){
     this.buscarUsuarioServicio().subscribe(
