@@ -34,32 +34,57 @@ export class BitacoraComponent implements OnInit {
   }
 
 
+
+
   generarInformePDF() {
     const doc = new jsPDF();
+    const fontSize = 12;
+    const lineHeight = 15;
 
-    doc.text('Informe de Bitácora', 10, 10);
+    // Configuración del título
+    doc.setFontSize(fontSize + 4);
+    doc.text('Informe de Bitácora', 20, 20);
+
+    // Configuración de las columnas
+    doc.setFontSize(fontSize);
+    const columnX1 = 20;
+    const columnX2 = 40;
+    const columnX3 = 60;
+    const columnX4 = 100;
 
     // Obtén los datos de la tabla y agrégalos al informe
     const bitacoras = this.bitacoras;
-    let y = 30;
+    let y = 40;
+
+    // Encabezados de columna
+    doc.text('ID', columnX1, y);
+    doc.text('Tabla', columnX2, y);
+    doc.text('Campo', columnX3, y);
+    doc.text('Fecha Creación', columnX4, y);
+    doc.text('Tipo Movimiento', columnX4 + 40, y);
+
+    y += lineHeight;
 
     for (const bitacora of bitacoras) {
-      doc.text(`ID: ${bitacora.idbitacora}`, 10, y);
-      doc.text(`Tabla: ${bitacora.tabla}`, 50, y);
-      doc.text(`Campo: ${bitacora.campo}`, 90, y);
-      doc.text(`Campo: ${bitacora.llaveprimaria}`, 90, y);
-      doc.text(`Campo: ${bitacora.valoranterior}`, 90, y);
-      doc.text(`Campo: ${bitacora.valornuevo}`, 90, y);
-      doc.text(`Campo: ${bitacora.fechacreacion}`, 90, y);
-      doc.text(`Campo: ${bitacora.usuariocreacion}`, 90, y);
-      doc.text(`Campo: ${bitacora.tipomovimiento}`, 90, y);
-      doc.text(`Campo: ${bitacora.ipregistro}`, 90, y);
-      y += 10; 
+      doc.text(bitacora.idbitacora.toString(), columnX1, y);
+      doc.text(bitacora.tabla, columnX2, y);
+      doc.text(bitacora.campo, columnX3, y);
+
+      // Formatear la fecha usando toLocaleDateString()
+      const fechaCreacion = new Date(bitacora.fechacreacion);
+      const fechaFormateada = fechaCreacion.toLocaleDateString();
+
+      doc.text(fechaFormateada, columnX4, y);
+      doc.text(bitacora.tipomovimiento, columnX4 + 40, y);
+
+      y += lineHeight;
     }
 
     // Guarda el informe como un archivo PDF
-    doc.save('informe_bitacora.pdf');
+    doc.save('informe_escencial.pdf');
   }
+
+
 }
 
 

@@ -6,14 +6,105 @@
     </div>
 
     <div class="row p-0" style="background-color: white;" >
-      <div class="col-4">
+      <div class="col-2">
         <h2> Ingresar Facturas</h2>
         <hr class="overflow-hidden">
       </div>
-      <div class="col-8">
+      <div class="col-10">
         <h2>Consultar Facturas</h2>
         <hr class="overflow-hidden">
       </div>
     </div>
   </div>
-    </div>
+
+    <div class="container-fluid">
+
+      <div class="row">
+      <!-- Columna Izquierda (4 bloques) -->
+
+      <div class="col-2 justify-content-start" >
+        <div>
+
+            <form (ngSubmit)="crearFactura()" id="formFactura">
+                <input type="text" [(ngModel)]="factura.codigofactura" [ngModelOptions]="{standalone:true}"
+                    placeholder="Id" required>
+                <br>
+                <input type="Date" [(ngModel)]="factura.fechaemicion" [ngModelOptions]="{standalone:true}"
+                placeholder="Fecha Nacimiento" required>
+                <br>
+                <input type="text" [(ngModel)]="factura.descuento" [ngModelOptions]="{standalone:true}"
+                placeholder="Descuento" required>
+                <select [(ngModel)]="factura.estatus" [ngModelOptions]="{standalone:true}">
+                  <option value="Pagado">Pagado</option>
+                  <option value="Pendiente">Pendiente</option>
+              </select>
+              <select [(ngModel)]="factura.garantia" [ngModelOptions]="{standalone:true}">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+                <input type="text" [(ngModel)]="factura.producto" [ngModelOptions]="{standalone:true}"
+                placeholder="Producto" required>
+                <input type="text" [(ngModel)]="factura.cantidad" [ngModelOptions]="{standalone:true}"
+                placeholder="Cantidad" required>
+                <input type="text" [(ngModel)]="factura.preciounitario" [ngModelOptions]="{standalone:true}"
+                placeholder="Precio unitario" required>
+                <input type="text" [(ngModel)]="factura.impuestos" [ngModelOptions]="{standalone:true}"
+                placeholder="Impuestos" required>
+
+
+            <br>
+            <input type="submit" class="btn btn-success" value="Save">
+
+            <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
+            </form>
+
+        </div>
+      </div>
+
+      <!-- Columna Derecha (8 bloques) -->
+      <div class="col-10">
+        <div class="container">
+
+            <table class="table p-0">
+                <thead>
+                  <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Fecha de Emision</th>
+                      <th scope="col">Descuento</th>
+                      <th scope="col">Estatus</th>
+                      <th scope="col">Garantia</th>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Precio Unitario</th>
+                      <th scope="col">Impuestos</th>
+                      <th scope="col">Subtotal</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                      <tr *ngFor="let u of facturas">
+                          <th scope="row">{{u.codigofactura}}</th>
+                          <th>{{u.fechaemicion | date:'dd/MM/yyyy'}}</th>
+                          <th>{{u.descuento | number: '1.2-2' }}</th>
+                          <th>{{u.estatus}}</th>
+                          <th>{{u.garantia}}</th>
+                          <th>{{u.producto}}</th>
+                          <th>{{u.cantidad}}</th>
+                          <th>{{u.preciounitario | number: '1.2-2' }}</th>
+                          <th>{{u.impuestos | number: '1.2-2' }}</th>
+                          <th>{{u.subtotal | number: '1.2-2' }}</th>
+                          <th>{{u.total}}</th>
+                          <td>
+                              <button class="btn btn-warning" (click)="modificar(u)">Modificar</button>
+                              <br><br>
+                              <button class="btn btn-warning" (click)="Eliminar(u)">Eliminar</button>
+                          </td>
+                      </tr>
+                </tbody>
+            </table>
+
+        </div>
+      </div>
+  </div>
+</div>

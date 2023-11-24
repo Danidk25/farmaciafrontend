@@ -35,7 +35,7 @@
                 <input type="text" [(ngModel)]="usuario.nombreusuario" [ngModelOptions]="{standalone:true}"
                     placeholder="Nombre Usuario" required>
                 <br><br>
-                <input type="text" [(ngModel)]="usuario.password" [ngModelOptions]="{standalone:true}"
+                <input type="password" [(ngModel)]="usuario.password" [ngModelOptions]="{standalone:true}"
                     placeholder="Ingrese Password" required>
                 <br><br>
                 <select [(ngModel)]="usuario.rol" [ngModelOptions]="{standalone:true}">
@@ -70,7 +70,7 @@
                     <tr *ngFor="let u of usuarios">
                         <th scope="row">{{u.idusuario}}</th>
                         <td>{{u.nombreusuario}}</td>
-                        <td>{{u.password}}</td>
+                        <td >{{u.password}}</td>
                         <td>{{u.rol}}</td>
                         <td>
                             <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
