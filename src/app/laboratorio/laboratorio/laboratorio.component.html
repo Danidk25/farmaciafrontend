@@ -16,4 +16,70 @@
       </div>
     </div>
   </div>
-    </div>
+
+  <div class="container-fluid">
+
+
+    <div class="row">
+        <!-- Columna Izquierda (4 bloques) -->
+
+        <div class="col-4 justify-content-start" >
+          <div >
+
+
+            <form (ngSubmit)="crearLaboratorio()" id="formLaboratorio">
+                <input type="text" [(ngModel)]="laboratorio.codigolaboratorio" [ngModelOptions]="{standalone:true}"
+                    placeholder="Id" required>
+                <br>
+                <input type="text" [(ngModel)]="laboratorio.ubicacionlaboratorio" [ngModelOptions]="{standalone:true}"
+                    placeholder="Ubicacion" required>
+                <br>
+                <input type="text" [(ngModel)]="laboratorio.nombrelaboratorio" [ngModelOptions]="{standalone:true}"
+                    placeholder="Nombre Laboratorio" required>
+                <br>
+                <input type="text" [(ngModel)]="laboratorio.encargadolaboratorio" [ngModelOptions]="{standalone:true}"
+                    placeholder="Encargado Laboratorio" >
+                <br>
+
+                <br>
+                <input type="submit" class="btn btn-success" value="Save">
+
+                <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
+            </form>
+
+          </div>
+      </div>
+
+
+        <!-- Columna Derecha (8 bloques) -->
+        <div class="col-8">
+          <div class="container">
+
+            <table class="table p-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Ubicacion Laboratorio</th>
+                        <th scope="col">Nombre Laboratorio</th>
+                        <th scope="col">Encargado Laboratorio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let u of laboratorios">
+                        <th scope="row">{{u.codigolaboratorio}}</th>
+                        <td>{{u.ubicacionlaboratorio}}</td>
+                        <td>{{u.nombrelaboratorio}}</td>
+                        <td>{{u.encargadolaboratorio}}</td>
+                        <td>
+                            <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
+                            <br><br>
+                            <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+          </div>
+        </div>
+    </div>
+  </div>

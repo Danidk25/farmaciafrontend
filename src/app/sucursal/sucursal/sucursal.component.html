@@ -16,4 +16,76 @@
       </div>
     </div>
   </div>
-    </div>
+
+  <div class="container-fluid">
+
+
+    <div class="row">
+        <!-- Columna Izquierda (4 bloques) -->
+
+        <div class="col-4 justify-content-start" >
+          <div >
+
+
+            <form (ngSubmit)="crearSucursal()" id="formSucursal">
+                <input type="text" [(ngModel)]="sucursal.codigosucursal" [ngModelOptions]="{standalone:true}"
+                    placeholder="Id" required>
+                <br>
+                <input type="date" [(ngModel)]="sucursal.fechaapertura" [ngModelOptions]="{standalone:true}"
+                  placeholder="Fecha Apertura" required>
+                <br>
+                <input type="date" [(ngModel)]="sucursal.fechacierre" [ngModelOptions]="{standalone:true}"
+                  placeholder="Fecha Cierre" required>
+                <br>
+                <input type="text" [(ngModel)]="sucursal.nombresucursal" [ngModelOptions]="{standalone:true}"
+                    placeholder="Nombre Sucursal" required>
+                <br>
+                <input type="text" [(ngModel)]="sucursal.departamentosucursal" [ngModelOptions]="{standalone:true}"
+                    placeholder="Departamento" required>
+                <br>
+
+                <br>
+                <input type="submit" class="btn btn-success" value="Save">
+
+                <button class="btn btn-secondary" (click)="Limpiar()">Clean</button>
+            </form>
+
+          </div>
+      </div>
+
+
+        <!-- Columna Derecha (8 bloques) -->
+        <div class="col-8">
+          <div class="container">
+
+            <table class="table p-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Fecha Apertura</th>
+                        <th scope="col">Fecha Cierre</th>
+                        <th scope="col">Nombre Sucursal</th>
+                        <th scope="col">Departamento Sucursal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let u of sucursales">
+                        <th scope="row">{{u.codigosucursal}}</th>
+                        <td>{{u.fechaapertura | date:'dd/MM/yyyy'}}</td>
+                        <td>{{u.fechacierre | date:'dd/MM/yyyy'}}</td>
+                        <td>{{u.nombresucursal}}</td>
+                        <td>{{u.departamentosucursal}}</td>
+                        <td>
+                            <button class="btn btn-warning" (click)="modificar(u)">Modificar </button>
+                            <br><br>
+                            <button class="btn btn-danger" (click)="Eliminar(u)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+          </div>
+        </div>
+    </div>
+</div>
+
